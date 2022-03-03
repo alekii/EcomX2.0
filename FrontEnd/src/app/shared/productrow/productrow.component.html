@@ -1,0 +1,34 @@
+
+<div class="product-row-1"> 
+    <h3>{{category}}</h3> 
+    <div
+  *ngIf="hasResults === true"
+  class="item-container-wrapper columns{{ columns }}"
+>
+  <div class="item-container" *ngFor="let product of result">
+    <a [routerLink]="['/product', product.productID, product.productUrl]" style="cursor: pointer">
+      <div class="item-img">
+        <img src="/../../../../../assets/img/{{ product.imagePath }}" />
+      </div>
+      <div class="item-description-container">
+        <p>{{ product.title }}</p>
+        <h4>Ksh {{ product.price }}</h4>
+      </div>
+    </a>
+  </div>
+</div>
+<p
+  style="
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  "
+  *ngIf="hasResults === false"
+>
+  There are no results for your query
+</p>
+
+</div>
+

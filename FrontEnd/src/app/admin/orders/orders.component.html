@@ -1,0 +1,58 @@
+<div id="orders">
+  <div class="orders-main">
+    <div  class="orders-today">
+      <h4>Today's Orders</h4>
+      <ul >
+        <li
+          *ngFor="let order of orderIDs; let i = index"
+          (click)="getOrderDetails(i)"
+        >
+          #{{ order.orderID }}
+          <span class="order-amount">Kshs {{ order.orderAmount }}</span>
+        </li>
+      </ul>
+    </div>
+    <div class="order-info">
+      <div class="search-order">
+        <label>Search Order</label>
+        <form>
+          <input type="text" class="search-product-text" />
+          <input type="submit" value="Search" class="search-product-submit" />
+        </form>
+      </div>
+      <div class="order-search-result">
+        <p>Order Found</p>
+        <p><a href="">#3654534654</a></p>
+      </div>
+      <div class="view-order" >
+        <h4>Order Details</h4>
+        <ul #shipmentInfo *ngIf="orderDetails">
+          <li>Order ID: # {{orderID}}</li>
+          <li>First Name: {{orderDetails[1][0].firstName}}</li>
+          <li>Last Name: {{orderDetails[1][0].lastName}}</li>
+          <li>County: {{orderDetails[1][0].county}}</li>
+          <li>Town:{{orderDetails[1][0].town}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf ="seenDetails" class="order-details">
+    <table class="prdoduct-details">
+      <tr>
+        <th>Product image</th>
+        <th>Product name</th>
+        <th>Category</th>
+        <th>Quantity</th>
+      </tr>
+      <tr *ngFor="let product of products">
+        <td>
+          <a [routerLink]="['/product',product.productID,product.productUrl]" target="_blank"> <img src="/../../../assets/img/{{product.imagePath}}" /></a>
+        </td>
+        <td>{{product.title}}</td>
+        <td>{{product.category}}</td>
+        <td>x {{product.quantityInStock}} </td>
+      </tr>
+    </table>
+  </div>
+</div>

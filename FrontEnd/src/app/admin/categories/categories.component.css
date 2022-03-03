@@ -1,0 +1,83 @@
+
+/******************************
+           Categories
+******************************/
+#categories {
+    width: 100%;   
+      }
+  
+  .categories h4 {
+    margin-bottom: 20px;
+  }
+  .categories-main {
+    /*  display:flex;*/
+    width: 80%;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+  .categories {
+    margin-top: 20px;
+  }
+  
+  .categories input[type="text"] {
+    width: 100%;
+    margin: 10px 0;
+    padding: 5px 5px;
+  }
+
+  input[type="text"]:focus{
+   outline:none
+  }
+  .categories input[type="submit"] {
+    width: 100%;
+    padding: 6px 0;
+    background-color: #8d682bb7;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .category-edit {
+    margin-top: 30px;
+  }
+  .categories li {
+    list-style: none;
+    margin-bottom: 15px;
+    cursor: pointer;
+    color: rgb(20, 20, 32);
+
+  }
+
+.categories li:hover{
+  text-decoration: underline;
+}
+   
+  .categories-edit h4 {
+    margin: 20px 0;
+  }
+    
+   
+  .categories-edit input[type="text"] {
+    padding: 5px 5px;
+  }
+  .categories-edit input[type="submit"] {
+    padding: 7px 0;
+  }
+  .search-product-text {
+    margin-top: 15px;
+    width: 69%;
+    padding: 3px;
+  }
+  .search-product-submit {
+    width: 30%;
+    border: none;
+    background-color: #8d682bb7;
+    color: white;
+    margin-left: -2px;
+    padding: 5px;
+    cursor: pointer;
+  }
+  .show {
+    visibility: visible !important;
+  }
+  

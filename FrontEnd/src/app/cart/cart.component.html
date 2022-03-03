@@ -1,0 +1,64 @@
+<div id="cart-items-container" *ngIf="itemsInCart; else noItems">
+  <div class="cart-items">
+    <div class="header">
+      <div class="item">Item</div>
+      <div class="quantity">Quantity</div>
+      <div class="price">Price</div>
+      <div class="subtotal">Subtotal</div>
+      <div class="remove">Action</div>
+    </div>
+  </div>
+
+  <div class="list-items" *ngFor="let cart of cartItems; let i = index">
+    <a [routerLink]="['/product', cart.prodId, cart.productUrl]">
+      <div class="image">
+        <img src="/../../../assets/img/{{ cart.imagePath }}" alt="" />
+      </div>
+    </a>
+    <div class="item">
+      <h4 class="name">{{ cart.name }}</h4>
+    </div>
+    <div class="quantity">
+      <form [formGroup]="quantityForm" class="quantity">
+        <select
+          formControlName="selControl"
+          (change)="onQuantityChange(i)"
+          name="quantity"
+          id="quantity"
+        >
+          <option
+            *ngFor="let x of counter(cart.opq); let i = &quot;index+1&quot;"
+            [selected]="i === cart.quantity"
+          >
+            {{ i }}
+          </option>
+        </select>
+      </form>
+    </div>
+    <div class="price">
+      <p class="price">Kshs {{ cart.price }}</p>
+    </div>
+    <div class="subtotal">
+      <p class="subtotal">Kshs {{ cart.subtotal }}</p>
+    </div>
+    <div class="remove">
+      <button class="remove" (click)="removeFromCart(i)">X</button>
+    </div>
+  </div>
+
+  <div class="total">
+    <p class="total">
+      Total: <span class="cart-total">Kshs {{ cartTotal }}</span>
+    </p>
+  </div>
+  <div class="checkout">
+    <a routerLink="/checkout">
+      <button class="checkout-btn">PROCEED TO CHECKOUT</button>
+    </a>
+  </div>
+</div>
+<ng-template #noItems>
+  <div>
+    <h4 style="text-align: center">There is nothing here, Cart is Empty</h4>
+  </div>
+</ng-template>

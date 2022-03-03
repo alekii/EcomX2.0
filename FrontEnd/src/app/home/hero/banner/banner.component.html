@@ -1,0 +1,22 @@
+<div class="banner">
+    <div class="slider">
+     
+        <div id="slides-container">
+            <div id="slides" #slides (transitionend)="getImage($event)">
+                <img src="./../../../assets/img/6.jpg" id="last"> 
+                <img src="./../../../assets/img/1.jpg">
+                <img src="./../../../assets/img/2.jpg">
+                <img src="./../../../assets/img/3.jpg">
+                <img src="./../../../assets/img/4.jpg">
+                <img src="./../../../assets/img/5.jpg">
+                <img src="./../../../assets/img/6.jpg"> 
+                <img src="./../../../assets/img/1.jpg" id="first">
+            </div>
+            </div>
+            <div id="navBtn">
+               <button id ="prevBtn" (click)="getPrevImage()" >Prev</button>
+               <button id="nextBtn"(click)="getNextImage()">Next</button>
+           </div>
+      
+    </div>
+</div>

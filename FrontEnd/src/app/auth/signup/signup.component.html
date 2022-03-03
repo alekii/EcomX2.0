@@ -1,0 +1,37 @@
+<main>
+    <form [formGroup] = "signUpForm" (ngSubmit)="createUser()">
+        <div class="signup-form"> 
+            <p *ngIf="userRegistered" class="error-info">
+            User is Already Registered
+        </p>
+        <h4>USER SIGNUP</h4>
+        <label>First Name</label>
+        <input type="text" class="text" formControlName="firstName">
+        <p *ngIf="submitted && f.firstName.errors"  class="error-info">
+            Name must be between 2 and 16 letters
+        </p>
+        <label>Last Name</label>
+        <input type="text" class="text" formControlName="lastName">
+        <p *ngIf="submitted && f.lastName.errors" class="error-info">
+            Name must be between 2 and 16 letters 
+        </p>
+        <label>Email Address</label>
+        <input type="email" class="text" formControlName="email">
+        <p *ngIf="submitted && f.email.errors" class="error-info">
+            Enter valid email
+        </p>
+        <label>Password</label>
+        <input type="password" class="password" formControlName="password">
+        <label>Repeat Password</label>
+        <input type="password" class="password" formControlName="confirmpassword">
+        <p *ngIf="submitted && f.confirmpassword.errors?.MatchPassword" class="error-info">
+            passwords do not match
+        </p>
+        <p *ngIf="submitted && f.confirmpassword.errors" class="error-info">
+            At least one upper case one lower case one digit
+        </p>
+        <input  type="submit" class="submit" value="SIGN UP">
+        <p>Already have an Account? <a routerLink="/auth/login" ><span class="signin-link">Log In</span></a></p>
+    </div>
+    </form>
+</main>

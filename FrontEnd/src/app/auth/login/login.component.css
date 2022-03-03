@@ -1,0 +1,83 @@
+* {
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+body{
+    
+    background-color:#efeef3
+}
+
+main{
+    width:40%;
+    background-color:#fff;
+    margin:10px auto 20px auto; 
+    font-family: sans-serif;
+
+}
+
+.login-form{
+    padding:60px  17% 60px 17%;
+    -webkit-box-shadow: 5px 5px 15px -7px rgba(168,104,168,1);
+-moz-box-shadow: 5px 5px 15px -7px rgba(168,104,168,1);
+box-shadow: 5px 5px 15px -7px rgba(168,104,168,1);border-radius:10px
+}
+
+.login-form h4{
+    font-size:16px;
+    color: #b58484;
+    text-align: center;
+    padding-bottom:30px;
+    letter-spacing: 2px;
+    font-weight:600
+
+}
+
+.text,.email, .password {
+  width:100%;
+  padding:13px 5px;
+  margin:7px 0 20px 0;
+  background-color:#efeef3 ;
+  font-size:15px;
+  color:gray
+  
+}
+
+
+.error-info{
+    transform:translateY(-17px);
+    font-size:14px;
+    color: red;
+}
+
+input{ 
+    width:100%;
+    font-size:16px; 
+    border:none;
+    border-radius:3px
+}
+ 
+.login-form input:focus{
+    outline:blue
+}
+
+.login-form label{
+   width:100%
+}
+
+.submit {
+    background-color:#8c8c8c;
+    color:#fff;
+    margin:0 0 20px  0;
+    border:none;
+    padding:8px 0;
+    font-size: 17px;
+    font-family: 500px; 
+    cursor: pointer;
+}
+
+.signup-link {
+    float:right; 
+    color:gray
+}

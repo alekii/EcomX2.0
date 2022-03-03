@@ -1,0 +1,97 @@
+
+/**************************************
+               Orders
+**************************************/
+#orders {   
+    margin: 0 auto;
+    transform: translateX(10%);
+    max-width: 1100px;
+  }
+  
+  .orders-main {
+    display: flex;
+    width: 80%;
+    margin-top: 20px;
+    padding: 0;
+  }
+  
+  .orders-today {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .orders-today h4 {
+    margin-bottom: 20px;
+  }
+  .orders-today li {
+    list-style: decimal;
+    margin-bottom: 20px;
+    cursor:pointer
+  } 
+  .orders-today li:hover { 
+    text-decoration: underline;
+  }
+  .orders-today li a {
+    text-decoration: none;
+  }
+  .order-amount {
+    margin-left: 50px;
+  }
+  .order-search-result p {
+    padding: 10px 0;
+  }
+  .view-order h4 {
+    margin: 30px 0 10px 0;
+  }
+  
+  .view-order li {
+    list-style: none;
+    padding-bottom: 15px;
+  }
+  .search-product-text {
+    margin-top: 15px;
+    width: 69%;
+    padding: 3px;
+  }
+  .search-product-submit {
+    width: 30%;
+    border: none;
+    background-color: #8d682bb7;
+    color: white;
+    margin-left: -2px;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  /**************************************
+                table
+  ***************************************/
+
+  .prdoduct-details{
+    margin-top:20px; 
+    width:80%;
+    margin-bottom:50px
+  }
+
+  .prdoduct-details tr {
+    border:1px solid black;
+    padding:20px
+  }
+
+  .prdoduct-details th {
+    font-size:15px;
+    font-weight: 600;
+    padding:20px;
+    border:1px solid black;
+  }
+
+  .prdoduct-details td{ 
+    padding:20px 20px ;
+    border:1px solid black;
+    text-align:center
+
+  }
+
+  .prdoduct-details img{
+    width:95px;
+    height:95px
+  }

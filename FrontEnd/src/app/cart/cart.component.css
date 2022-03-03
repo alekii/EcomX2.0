@@ -1,0 +1,149 @@
+
+#cart-items-container{
+    margin: 50px auto;
+    width:80%; 
+    
+}
+.cart-items .header, .list-items {
+    border-collapse: collapse;
+    display: table;
+    width: 100%;
+}
+ .list-items{ 
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%);
+    margin: 8px 0;
+}
+.cart-items .header>div, .list-items>div{  
+        display: table-cell;
+        text-align: center;
+        width:24%;
+    border-right: 1px solid #eee;  
+    
+}
+
+.list-items>div{
+padding: 0 20px;
+display: table-cell;
+}
+
+.cart-items .header>.item { 
+    width: 36.47%; 
+}
+.cart-items .header { 
+    color: #8e8e93;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.14;
+    text-transform: uppercase;
+}
+.cart-items .header>.quantity {
+    text-align: left; 
+    width:19%
+}
+.cart-items .header>.price {
+     width: 20%;
+    text-align: left; 
+}
+
+
+.cart-items .header>.subtotal { 
+    width: 18%;
+    text-align: left;
+    padding-left: -20px;
+}
+
+.cart-items .header>.remove { 
+    width: 10%;
+}
+.list-items .image{ 
+    width:90px;
+}
+.list-items .image img{
+    padding:10px;
+    width:100px;
+    height:100px;
+}
+.list-items .item>.name { 
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.25;
+    position: relative;
+    top: -42px; 
+    padding-left: 13%;
+}
+
+
+.list-items .item{
+    
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 0;
+    padding-left: 0;
+    text-align: left;
+    position: relative;
+    width: 29%; 
+    border-right: 1px solid #eee; 
+    border-left: 1px solid #eee; 
+}
+.list-items .quantity{ 
+    width: 11%; 
+    padding-top: 23px; 
+ 
+}
+.list-items .quantity>#quantity{ 
+    position: relative;
+    top: -42px;
+    height:30px;
+    width:40px
+}
+
+ 
+.list-items .price>.price{ 
+    position: relative;
+    top: -42px;   
+     width: 100%;
+
+} 
+
+.list-items .subtotal>.subtotal{ 
+    position: relative;
+    top: -42px;
+    width: 100%;
+
+}
+
+.list-items .remove>.remove{
+    position: relative;
+    top: -42px;
+    height:20px; 
+    background-color: white;
+    font-size: large; 
+    border:none;
+    cursor: pointer;
+    position: relative;
+    top: -42px;
+}
+
+
+.total>.total, .total>.cart-total{
+    margin-top:30px;
+    text-align: right;
+    font-size: 16px;
+    font-weight: 500;
+
+}
+
+.checkout-btn{
+    width:22%;
+    margin:20px 78%;
+    padding:5px;
+    font-weight:500;
+    height:40px;
+    background-color: rgb(181 193 54);
+    color: white;
+    border: none; 
+    cursor: pointer;
+    
+}

@@ -1,0 +1,59 @@
+<div id="products">
+    <div class="products">
+        <div class="products-left">
+            <h4>Create New Product
+            </h4>
+            <div class="products-details">
+
+                <form (ngSubmit) ="onSubmit(f)" #f="ngForm">
+                    <label>Product Name</label>
+                    <input type="text"name="title" ngModel required>
+                    <label>Price</label>
+                    <input type="text"name="price" ngModel required>
+                     <label>Category</label>
+                    <select name="" id="" name="category" name="category" ngModel required>
+                     <option>Select Category</option>
+                        <option 
+                        *ngFor="let category of categories ;" >
+                        {{category.name}} 
+                    </option> 
+                    </select>
+                    <label>Quantity</label>
+                    <input type="text" name="quantity" ngModel required> 
+                    <label>Image Url</label>
+                    <input type="text" name="imagePath" ngModel required>
+                    <input type="submit" value="Add Product" class="add-product" />
+
+                </form>
+                <p [ngStyle]="{'color': valid? 'black':'red'}" #loadStatus></p>
+            </div>
+
+        </div>
+        <div class="products-right">
+            <form>
+                <label>Search Product</label>
+                <div class="search-product">
+                    <input type="text" class="search-product-text">
+                    <input type="submit" value="Search" class="search-product-submit">
+                </div>
+            </form>
+            <div class="product-search-results">
+                <ul>
+                    <li><a href="#">search result 1</a></li>
+                    <li><a>search result 2</a></li>
+                    <li><a>search result 3</a></li>
+                    <li><a>search result 4</a></li>
+                </ul>
+            </div>
+
+            <div *ngIf="outOfStock.length >0 ; " class="products-out-of-stock">
+                <h4>Products out of stock</h4>
+                <p #message class = "message">Tip:Click on the item to update stock</p>
+                <ul #parentUl>
+                    <li *ngFor="let item of outOfStock; let i = index" (click)="updateQuantity(i)" >{{item.title}}</li> 
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+</div>

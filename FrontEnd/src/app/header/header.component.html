@@ -1,0 +1,27 @@
+<nav>
+    <div class="nav-bar">
+        <a routerLink="/" class="logo"><h3><span class="shop">WEST</span>SHOP</h3></a>
+        <div class="search-box">
+            <form [formGroup] = "searchForm" (ngSubmit)="search()">
+                 <input type="text" name="searchbar" formControlName = "searchTerm">
+                 <input type="submit" value="Search">
+            </form>
+        </div>
+        <ul>
+            <li>
+                <a routerLink="/cart">Cart<span class="round">{{itemsInCart}}</span></a>  
+            </li>
+            <li class="dropdown-toggle" appDropDown>
+                <a >Account</a>
+                <div></div>
+                <ul class="dropdown-menu" >
+                    <li><a routerLink="/auth/login">SignIn</a></li>
+                    <li (click)="logOut()"><a>SignOut</a></li>
+                    <li><a>Orders</a></li> 
+                    <li><a>profile</a></li>
+                </ul>
+            </li>
+        </ul>
+       
+    </div>
+</nav>

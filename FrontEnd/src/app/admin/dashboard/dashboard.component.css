@@ -1,0 +1,32 @@
+
+/**************************************
+               Dahboard
+**************************************/
+#dashboard {
+    background-color: #f2f2f2;
+    margin-top: 20px;
+    width: 100%;  
+  }
+  .quick-stats {
+    display: flex;
+    justify-content: space-around;
+  }
+  .quick-stats > div {
+    width: 27%;
+    background-color: #fff;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    height: 200px;
+  }
+  
+  .quick-stats > div > h4,
+  .quick-stats > div > h3 {
+    position: relative;
+    left: 50%;
+    top: 19%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding-top: 25px;
+    color: rgba(9, 11, 43, 0.719);
+  }
+  

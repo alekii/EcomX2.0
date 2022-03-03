@@ -1,0 +1,14 @@
+<main>
+    <form [formGroup]="loginForm" (ngSubmit) ="onSubmit()">
+        <div class="login-form">  
+        <h4>USER LOGIN</h4> 
+        <p *ngIf="submitted && errorMessage" class="error-info">Invalid email or password</p>
+        <input type="email" class="email" placeholder="johndoe@gmail.com" formControlName="email" id="email">
+        <p *ngIf="submitted && !loginForm.get('email')?.valid" class="error-info">email is required</p> 
+        <input type="password" class="password" placeholder="*******" formControlName="password"  >
+        <p *ngIf="submitted && !loginForm.get('password')?.valid" class="error-info">password is required</p>
+        <input [disabled]="!loginForm.valid" type="submit" class="submit" value="LOG IN">
+        <p>No Account? <a [routerLink]="['/auth/signup']" routerLinkActive="router-link-active" ><span class="signup-link">Sign Up</span></a></p>
+    </div>
+    </form>
+</main>

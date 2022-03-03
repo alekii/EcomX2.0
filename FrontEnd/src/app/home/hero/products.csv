@@ -1,0 +1,37 @@
+ProductID,ProductName,price,image url,category,quantity
+1,Infinix Hot 11,12875,infinix1.jpg,SmartPhone,7
+2,Tecno Camon 20,25000,tecno1.jpg,Smartphone,10
+3,Xiaomi Note 13,15670,xiaomi1.jpg,Smartphone,1
+4,Oppo Reno 6,32450,oppo1.jpg,SmartPhone,8
+5,Samsung J8,17600,samsung1.jpg,SmartPhone,9
+6,Cubot note 6,12360,cubot1.jpg,SmartPhone,6
+7,LG freezer,38900,lg1.jpg,Kitchen Appliance,3
+8,blender,5000,blender1.jpg,Kitchen Appliance,4
+9,cutlery set,1345,cutlery1.jpg,Kitchen Appliance,6
+10,Microwave,10800,microwave.jpg,Kitchen Appliance,6
+11,Oven,11100,oven.jpg,Kitchen Appliance,9
+12,Gas Cooker,13200,gascooker.jpg,Kitchen Appliance,9
+13,Samsung LED,53400,samsungled.jpg,TVs & Audio,9
+14,GLD G56,13800,jbl1.jpg,TVs & Audio,10
+15,Ampex HD,2400,ampex1.jpg,TVs & Audio,3
+16,Sony Portable,8000,sonybl.jpg,TVs & Audio,6
+17,Sony Home Theatre,42000,sony.jpg,TVs & Audio,7
+18,Pioneer ,30000,pioneer.jpg,TVs & Audio,10
+19,HandBag,4600,handbag.jpg,Women Wear,9
+20,Dress,2000,dress.jpg,Women Wear,7
+21,flat shoes,6000,flatshoes.jpg,Women Wear,5
+22,high heels,5800,highheels.jpg,Women Wear,1
+23,blouse,2700,blouse.jpg,Women Wear,1
+24,pajamas,3600,pajamas.jpg,Women Wear,9
+25,Nike Sneakers,13000,nikesneakers.jpg,Men's Wear,6
+26,Khaki Trousers,3800,khaki.jpg,Men's Wear,2
+27,Official Shirt,1300,officialshirt.jpg,Men's Wear,11
+28,Polo Tshirt,4500,polo.jpg,Men's Wear,5
+29,Vneck Tshirt,2200,vneck.jpg,Men's Wear,11
+30,Jeans,3200,jeans.jpg,Men's Wear,10
+31,Swiss Watch,35400,swisswatch.jpg,Watches,1
+32,Expedition Watch,4800,expeditionwatch.jpg,Watches,2
+33,Sports Watch,2300,sportswatch.jpg,Watches,7
+34,Quartz Watch,7500,qurtzwatch.jpg,Watches,2
+35,Smart Watch,3900,smartwatch.jpg,Watches,8
+36,Apple Watch,44600,applewatch.jpg,Watches,6

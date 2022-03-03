@@ -1,0 +1,22 @@
+<div *ngIf="product; else loading" class="product-detail">
+    <div class="product-detail-left">
+      <img src="/../../../assets/img/{{product.imagePath}}" />
+    </div>
+    <div class="product-detail-right">
+      <h4>{{ product.title }}</h4>
+      <p>Kshs {{ product.price }}</p>
+      <form   [formGroup]="cartForm" (ngSubmit)="onSubmit()">
+        <button type="button" class="adjust-amount" (click)="decreaseQuantity()">-</button>
+        <input type="text" id="amount" formControlName="quantity" />
+        <button type="button" class="adjust-amount" (click)="increaseQuantity()">+</button>
+        <button [disabled]="isVisible"  type="submit" class="addtocart"><span [ngStyle]="{'visibility':isVisible?'hidden':'visible'}">Add To Cart</span>
+          <img class ="gif" src="https://www.wpfaster.org/wp-content/uploads/2013/06/loading-gif.gif"
+           [ngStyle]="{'visibility':isVisible?'visible':'hidden'}"></button>
+      </form>
+      <p >{{loadStatus}}</p> 
+    </div>
+  </div>
+  <ng-template #loading>
+   <span>Loading...</span>
+  </ng-template>
+  

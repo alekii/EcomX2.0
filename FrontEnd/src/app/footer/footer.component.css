@@ -1,0 +1,43 @@
+.footer{
+    background-color:hsl(0, 0%, 20%);
+    display:flex; 
+    padding:50px
+}
+
+.footer h4{
+   color:white;
+   padding-bottom:20px;
+   font-weight:600
+}
+.footer-about , .footer-quick-shop ,.footer-policies, .footer-service{
+    flex:1; 
+}
+
+.footer-about ul,
+ .footer-quick-shop ul,
+ .footer-policies ul,
+  .footer-service ul{
+    flex:1;
+    display:flex;
+    flex-direction: column;
+}
+
+.footer a{
+    text-decoration: none;
+    color: white;
+}
+
+.footer ul li{ 
+    list-style: none; 
+    padding:5px 0
+}
+
+.footer-rights{
+    background-color:#2b2e36;
+    color:#fff;
+    text-align: center;
+    font-size:12px;
+    letter-spacing:1px;
+    padding:10px
+
+}

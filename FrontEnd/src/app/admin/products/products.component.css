@@ -1,0 +1,150 @@
+
+/******************************
+           Products
+******************************/
+ 
+.products {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    justify-content: space-around;
+  }
+  
+  .products-left {
+    width: 50%;
+  }
+  .products-right {
+    width: 50%;
+    padding: 0 7%;
+  }
+  .products-details {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .products-details p {
+    text-align: center;
+    margin-top:20px
+  }
+  .products-details label {
+    width: 100%;
+  }
+  .products-details input {
+    width: 100%;
+  }
+  .products-details label {
+    padding-bottom: 20px;
+    padding-left: 5px;
+  }
+  .products-left h4 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .products-details input {
+    padding: 7px 5px;
+  }
+  
+  .products-details input,
+  select {
+    margin-bottom: 20px;
+    margin-top: 5px;
+    font-size: 16px;
+    background-color: #f2f2f2;
+    border: 1px solid #9f8a8a;
+  }
+  .products-details select {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 5px 5px;
+    cursor: pointer;
+  }
+  
+  .products-details select:focus,
+  input:focus {
+    outline: none;
+  }
+  .products-details input[type="submit"] {
+    cursor: pointer;
+    background-color: #8d682bb7;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+  }
+  
+  .search-product label {
+    width: 100%;
+  }
+  
+  .search-product input {
+    margin-top: 5px;
+  }
+  .search-product-text {
+    margin-top: 15px;
+    width: 69%;
+    padding: 3px;
+  }
+  .search-product-submit {
+    width: 30%;
+    border: none;
+    background-color: #8d682bb7;
+    color: white;
+    margin-left: -2px;
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .product-search-results li,
+  .products-out-of-stock li {
+    list-style: none;
+    padding-top: 15px;
+  }
+  
+  .product-search-results li a,
+  .products-out-of-stock li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+  }
+  
+  .products-out-of-stock h4 {
+    margin: 40px 0 10px 0;
+  }
+  
+  .products-out-of-stock li {
+    list-style: decimal;
+    padding: 15px 0 15px 0;
+    border-bottom: 1px solid #d1b8b8;
+    cursor:pointer
+    
+  }
+  
+  .products-out-of-stock ul{
+    transform:translateX(20px);
+    margin-top:10px
+  }
+   
+  .products-out-of-stock ul li form{
+     margin-top:15px
+  }
+   
+  .products-out-of-stock ul input[type="text"]{
+     padding:5px 0;
+     width:70%;
+     outline:none;
+     
+  }
+
+  .products-out-of-stock ul input[type="submit"]{
+    padding:7px 0;
+    color:white;
+    background-color: #8d682bb7;
+    width:30%;
+    border:none;
+    cursor:pointer;
+
+
+ }
+
+ .message{
+  line-height:27px; 
+  border-bottom:1px solid #d1b8b8;
+ }

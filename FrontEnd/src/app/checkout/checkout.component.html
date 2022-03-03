@@ -1,0 +1,83 @@
+<main>
+    <div class="form-left styling">
+        <div class="address" >
+            <h4>
+                1. Shipping Details<span class="edit-details"  (click)="editdetails($event)">Edit</span>
+            </h4>
+            <form [formGroup]="checkoutForm" (ngSubmit)="getShipmentInfo()">
+                <div class="shipping-details collapseable">
+                    <label>First Name</label>
+                    <input type="text" formControlName="firstName">
+                    <label>Last Name</label>
+                    <input type="text" formControlName="lastName">
+                    <label>County</label>
+                    <input type="text" formControlName="county">
+                    <label>Town</label> 
+                    <input type="text" formControlName="town">
+                    <input type="submit" value="Continue" class="continue"  #cont />
+                </div>
+            </form>
+        </div>
+        <div class="payment">
+            <h4>
+                2. Payment<span class="edit-details" (click)="editdetails($event)" >Edit</span>
+            </h4>
+            <form [formGroup]="checkoutForm" (ngSubmit)="xOrder()">
+                <div class="payment-form collapseable">
+                    <label>Enter MPESA Code</label>
+                    <input type="text" formControlName="mpesaCode">
+                    <input type="submit" value="Confirm Code" class="continue" #cont/>
+                </div>
+            </form>
+        </div>
+        <div class="review">
+            <h4>
+                3. Review & Place Order
+            </h4>
+    
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value=""  >
+                    I agree to the Terms and Conditions
+                </label>
+            </div>
+        </div>
+        <button class="place-order" (click)="placeOrder()">Place Order</button>
+    </div>
+    <div class="order-preview styling">
+        <a routerLink="/cart"><h4> <span class="edit-details"> Edit Cart</span>
+        </h4></a>
+        <table class="products">
+            <tr>
+                <th>
+                </th>
+                <th>
+                    Product
+                </th>
+                <th>
+                    Amount
+                </th>
+                <th>
+                    Quantity
+                </th>
+            </tr>
+            <tr *ngFor="let items of cartItems">
+                <td>
+                    <img src="/../../../assets/img/{{items.imagePath}}">
+                </td>
+                <td>
+                    <p>{{items.name}}</p>
+                </td>
+                <td>
+                    <p>KShs {{items.price}}</p>
+                </td>
+                <td>
+                    <p>x {{items.quantity}}</p>
+                </td>
+            </tr>
+             
+        </table>
+    
+    <h3>Total <span class="total">Kshs {{cartTotal}}</span></h3>
+    </div>
+</main>

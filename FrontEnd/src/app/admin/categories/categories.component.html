@@ -1,0 +1,24 @@
+<div id="categories">
+    <div class="categories-main">
+        <div class="categories">
+            <h4>Add new Category</h4>
+            <form (ngSubmit)="onSubmit(f)" #f="ngForm"> 
+                <label for="new">Category Name</label>
+                <input type="text" name="categoryName" ngModel>
+                <input type="submit" value="Add Category">
+            </form>
+            <h4 class="category-edit">Select Category to edit</h4>
+            <ul  #categoryContainer> 
+                <li *ngFor="let category of categories; let i = index" (click)="showUpdateArea(i)">{{category}}</li>
+            </ul>
+        </div>
+        <div [ngStyle]="{'display':editMode?'block':'none'}" class="categories-edit">
+            <h4>Edit Category Name</h4>
+            <p #categoryNameToEdit> </p>
+            <form (ngSubmit) ="onUpdate(u)" #u ="ngForm">
+                <input type="text" placeholder="New Category Name" class="search-product-text" name="newCategoryName" ngModel>
+                <input type="submit" value="Update" class="search-product-submit">
+            </form>
+        </div>
+    </div>
+</div>
