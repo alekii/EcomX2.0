@@ -8,20 +8,20 @@ Uses MongoDB NoSQL database
 
 Features:
 
-  -User cannot order more than the number of items available
+User cannot order more than the number of items available
+
+If product is out of Stock, it ceases to display on the front end
+
+Admin account gets to add and restock products 
   
-  -If product is out of Stock, it ceases to display on the front end
+Admin can view orders placed i.e order number, product ordered, quantity ordered, amount of the order and shipment info
   
-  -Admin account gets to add and restock products 
+Admin account gets to add new product categories,edit category names and view its changed name without refreshing page.
   
-  -Admin can view orders placed i.e order number, product ordered, quantity ordered, amount of the order and shipment info
+Orders are placed only when there is product in shopping cart and when user is authenticated
   
-  -Admin account gets to add new product categories,edit category names and view its changed name without refreshing page.
-  
-  -Orders are placed only when there is product in shopping cart and when user is authenticated
-  
-  -Form validation 
+Form validation 
  
- To create admin account, please do so on the backend as admin creation from UI form is not supported.
+To create admin account, please do so on the backend as admin creation from UI form is not supported.
  
  
