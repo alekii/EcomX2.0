@@ -1,6 +1,6 @@
 # EcomX2.0
 
-A fully functional ecommerce web app with user authentication, Admin dashboard, 
+A fully functional ecommerce web app with user authentication, Admin dashboard
 
 Created in Angular 12 CLI, ExpressJS and  NodeJS
 Uses MongoDB NoSQL database
