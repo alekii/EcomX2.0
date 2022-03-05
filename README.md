@@ -24,9 +24,10 @@ Form validation
  
 To create admin account, please do so on the backend as admin creation from UI form is not supported.
  
-#Screenshots#
+#Screenshots
 
-Catgory Page
+Category Page
+
 ![categorypage](https://user-images.githubusercontent.com/32989946/156870088-72b28020-99c4-4438-b86b-945b73537c2c.png)
 
 Single Product Page
