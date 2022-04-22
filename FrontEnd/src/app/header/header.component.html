@@ -17,16 +17,17 @@
                     <a>Account</a>
                 </ng-template>
                 <div></div>
-                <ul class="dropdown-menu" >
-                    <li (click)="logOut()" *ngIf="userIsPresent; else logout"><a>Log Out</a></li>
-                    <ng-template #logout> 
-                        <li><a routerLink="/auth/login">Log In</a></li>
-                    </ng-template>
+                <ul class="dropdown-menu" *ngIf="userIsPresent; else logout" >
+                    <li><a>Profile</a></li> 
                     <li><a>Orders</a></li> 
-                    <li><a>profile</a></li>
-                </ul>
+                    <li (click)="logOut()" ><a>Log Out</a></li>
+                </ul> 
+                <ng-template #logout>
+                    <ul class="dropdown-menu">
+                        <li><a routerLink="/auth/login">Log In</a></li>
+                    </ul>
+                </ng-template>
             </li>
-        </ul>
-       
+        </ul> 
     </div>
 </nav>
