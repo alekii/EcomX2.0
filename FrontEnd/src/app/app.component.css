@@ -1,4 +1,4 @@
-#main {
+.main {
   max-width: 1200px;
   margin: 0 auto;
   padding-top: 100px;
@@ -9,3 +9,5 @@
   flex-direction: column;
   justify-content: space-between;
 }
+ 
+ 

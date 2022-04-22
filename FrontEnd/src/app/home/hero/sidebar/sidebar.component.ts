@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';  
 import { Category } from 'src/app/shared/category.model';
-import { TaskService } from 'src/app/task.service';
+import { TaskService } from 'src/app/services/task.service';
 
 @Component({
   selector: 'app-sidebar',

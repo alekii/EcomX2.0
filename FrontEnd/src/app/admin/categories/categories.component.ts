@@ -7,7 +7,7 @@
 } from '@angular/core';
 import { NgForm } from '@angular/forms'; 
 import { Category } from 'src/app/shared/category.model';
-import { TaskService } from 'src/app/task.service';
+import { TaskService } from 'src/app/services/task.service';
 
 @Component({
   selector: 'app-categories',
@@ -45,7 +45,7 @@ export class CategoriesComponent implements OnInit {
     if (this.categories.indexOf(categoryName) >= 0) return; 
     this.taskService.addCategory(category).subscribe((res:any)=>{ 
       this.categories.unshift(res.name);   
-    }, (error)=>{
+    }, (error:any)=>{
       
     }) 
     const li = this.renderer.createElement('li');
@@ -83,7 +83,7 @@ export class CategoriesComponent implements OnInit {
       
     } 
     this.taskService.updateCategoryName(newcategory).subscribe((res:any)=>{ 
-    },(error)=>{
+    },(error:any)=>{
 
     })
       const index = this.categories.indexOf(nativeContent) 

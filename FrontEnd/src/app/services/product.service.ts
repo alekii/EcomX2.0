@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CsvService } from './csv.service';
-import { Products } from './shared/products.model';
+import { Products } from '../shared/products.model';
 import { shareReplay} from "rxjs/operators"
 
 @Injectable()

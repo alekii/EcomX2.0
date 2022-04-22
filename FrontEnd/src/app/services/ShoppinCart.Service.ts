@@ -1,6 +1,6 @@
 import { Subject } from "rxjs/internal/Subject";
-import { Cart } from "./shared/cart.model";
-import { Products } from "./shared/products.model";
+import { Cart } from "../shared/cart.model";
+import { Products } from "../shared/products.model";
 
 export class ShoppingCartService{
   

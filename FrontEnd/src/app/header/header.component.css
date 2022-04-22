@@ -6,7 +6,8 @@ nav{
     z-index:2;box-shadow: -3px 0px 5px -1px rgba(0,0,0,0.75);
     -webkit-box-shadow: -3px 0px 5px -1px rgba(0,0,0,0.75);
     -moz-box-shadow: -3px 0px 5px -1px rgba(0,0,0,0.75);
-    min-width:1024px
+    min-width:1024px;
+    z-index:3;
 }
 
 .nav-bar{
@@ -113,6 +114,15 @@ nav{
 }
 .dropdown-toggle a {
     cursor:pointer;
+}
+.dropdown-toggle >a:after {
+    content: '';   
+    position: absolute;   
+    border: 7px solid transparent; 
+    /* This will set the direction of the arrow.*/  
+     border-top: 7px solid black; 
+    top: 40px; 
+    margin-left: 5px;
 }
 .dropdown-menu li {
     padding:8px 0px 8px 32px !important;

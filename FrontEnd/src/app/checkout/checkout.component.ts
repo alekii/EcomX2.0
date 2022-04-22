@@ -1,12 +1,12 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth.service';
 import { Cart } from '../shared/cart.model';
-import { ShoppingCartService } from '../ShoppinCart.Service';
-import { TaskService } from '../task.service';
+import { ShoppingCartService } from '../services/ShoppinCart.Service';
+import { TaskService } from '../services/task.service';
 import { ShipmentInfo } from './shipmentInfo.model';
-
+ 
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -24,8 +24,7 @@ export class CheckoutComponent implements OnInit {
     private cartService: ShoppingCartService,
     private taskService: TaskService,
     private auth: AuthService,
-    private router: Router
-  ) {}
+    private router: Router  ) {}
 
   ngOnInit(): void {
     this.cartTotal = this.cartService.getcartTotal();
@@ -72,8 +71,7 @@ export class CheckoutComponent implements OnInit {
     this.cont.nativeElement.parentElement.classList.toggle('hide');
   }
   placeOrder() {
-    this.shipmentInfo = this.checkoutForm.value;
-    const token = localStorage.getItem('Token')?.replace(/"/gi, '');
+    this.shipmentInfo = this.checkoutForm.value; 
 
     this.order = {
       orderItems: this.cartItems,
@@ -81,7 +79,7 @@ export class CheckoutComponent implements OnInit {
       shipmentInfo: this.shipmentInfo,
     };
 
-    this.taskService.createOrder(this.order, token).subscribe((res: any) => {
+    this.taskService.createOrder(this.order).subscribe((res: any) => {
       if (res.orderID) {
         this.cartService.removeCartItems();
         this.router.navigate(['/ordersuccess', res.orderID]);

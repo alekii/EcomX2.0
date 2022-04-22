@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { TaskService } from 'src/app/task.service'; 
+import { AuthService } from 'src/app/services/auth.service'; 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -12,8 +12,9 @@ export class SignupComponent implements OnInit {
   PasswordForm : FormGroup
   submitted: boolean;
   userRegistered:Boolean
+
   constructor(private fb: FormBuilder,
-    private taskService: TaskService,
+    private authService: AuthService,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -60,12 +61,12 @@ createUser(){
   this.submitted = true
   if(this.signUpForm.valid){  
 
-    this.taskService.createUser(this.signUpForm.value).subscribe(res =>{  
+    this.authService.createUser(this.signUpForm.value).subscribe(res =>{  
       if(res.status === 200){
+        this.userRegistered = true
         this.router.navigateByUrl('/auth/login')
       }
-    },(error)=>{
-     this.userRegistered = true
+    },(error)=>{;
     })
 
   }

@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRoute, ActivatedRouteSnapshot, Resolve, } from "@angular/router"; 
 import { Observable } from "rxjs";
-import { WebRequestService } from "src/app/web-request.service"; 
+import { WebRequestService } from "src/app/services/web-request.service"; 
 import { Products } from "../../shared/products.model"; 
 
 @Injectable()

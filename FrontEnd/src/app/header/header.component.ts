@@ -4,7 +4,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { EventEmitter } from '@angular/core';
 import { Cart } from '../shared/cart.model';
-import { ShoppingCartService } from '../ShoppinCart.Service';
+import { ShoppingCartService } from '../services/ShoppinCart.Service';
+import { TokenStorage } from './../services/tokenstorage.service';
+import { User } from '../shared/user.model';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -14,9 +16,12 @@ export class HeaderComponent implements OnInit,OnDestroy {
   itemsInCart:number;
   subscription : Subscription;
   searchForm:FormGroup;  
+  user:User;
+  userIsPresent = false;
   constructor(private shoppingCart: ShoppingCartService,
     private router:Router,
-    private route:ActivatedRoute) {  
+    private route:ActivatedRoute,
+    private tokenStorage: TokenStorage) {  
     }
 
   ngOnInit(): void {
@@ -29,7 +34,15 @@ export class HeaderComponent implements OnInit,OnDestroy {
 
     this.searchForm = new FormGroup({
       searchTerm: new FormControl(null)
-    })  
+    })   
+    this.tokenStorage.userProfile.subscribe((data:any)=>{ 
+      if(data.firstName!==''){ 
+        this.userIsPresent = true;
+        this.user = data 
+      }else{ 
+        this.userIsPresent = false; 
+      }
+    });
   }
   ngOnDestroy(): void { 
     this.subscription.unsubscribe();
@@ -41,8 +54,8 @@ export class HeaderComponent implements OnInit,OnDestroy {
     this.router.navigate(['./search/'+searchText]);
   });
   }
-  logOut(){
-    localStorage.removeItem('Token');
+  logOut(){ 
+    this.tokenStorage.signout()
     this.router.navigate(['/'])
   }
 }

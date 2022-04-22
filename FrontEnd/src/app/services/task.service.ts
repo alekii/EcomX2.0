@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';  
-import { Products } from './shared/products.model';
-import { User } from './shared/user.model';
+import { Products } from '../shared/products.model'; 
 import { WebRequestService } from './web-request.service';
 
 @Injectable({
@@ -25,12 +24,8 @@ export class TaskService {
      return this.service.getProduct('products',productName)
    }
 
-   createUser(user: User){
-        return this.service.createUser('users', user)
-   }
-   
-   createOrder(order:Object,token:any){
-     return this.service.createOrder('orders', order,token)
+   createOrder(order:Object){
+     return this.service.createOrder('orders', order)
    }
 
    addCategory(category:object) {  
@@ -47,16 +42,16 @@ export class TaskService {
      return this.service.createProduct('products', product)
   }
    
-  getOutOfStock(token:string){ 
-    return this.service.getOutOfStock('products/outofstock/never',token)
+  getOutOfStock(){ 
+    return this.service.getOutOfStock('products/outofstock/never')
   }
 
-  updateStock(updatedProduct: { quantityInStock: string; productToUpdate: object; },token:any) { 
-        return this.service.updateStock('products/addstock',updatedProduct,token)
+  updateStock(updatedProduct: { quantityInStock: string; productToUpdate: object; }) { 
+        return this.service.updateStock('products/addstock',updatedProduct)
   }
 
-  getTodayOrders(  token: any) { 
-    return this.service.getTodayOrders('orders/today', token )
+  getTodayOrders() { 
+    return this.service.getTodayOrders('orders/today')
   }
  
   getOrderDetails(_id:Object){

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'; 
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from 'src/app/auth.service'; 
+import { AuthService } from 'src/app/services/auth.service'; 
+import { TokenStorage } from './../../services/tokenstorage.service';
+import {Location} from '@angular/common'
 
 @Component({
   selector: 'app-login',
@@ -13,7 +15,14 @@ export class LoginComponent implements OnInit {
   submitted:Boolean;
   user:Object
   errorMessage: boolean;
-  constructor(private fb : FormBuilder,private auth:AuthService, private router:Router,private route:ActivatedRoute) { }
+  constructor(
+     private fb : FormBuilder,
+     private auth:AuthService,
+     private tokenStorage:TokenStorage, 
+     private router:Router,
+     private route:ActivatedRoute,
+     private location: Location)
+     { }
   
   ngOnInit(): void {
     this.loginForm=this.fb.group({
@@ -29,12 +38,13 @@ export class LoginComponent implements OnInit {
       password: this.loginForm.get('password')?.value,
     }
     let auth = this.auth
-    .login(this.user).subscribe(res => {
-      if(res.status===200){
-        this.router.navigate(['../'])
-        this.auth.saveToLocalStorage(res); 
+    .login(this.user).subscribe((res:any) => {
+      if(res.status===200){  
+        this.tokenStorage.saveToken(JSON.stringify(res.headers.get('x-auth-token')));
+        this.tokenStorage.saveUser(res.body);   
+        this.location.back()
       }
-    }, (error) => { 
+    }, () => { 
       this.errorMessage=true
     }
     )

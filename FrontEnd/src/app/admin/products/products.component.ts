@@ -7,10 +7,11 @@ import {
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/auth.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { Category } from 'src/app/shared/category.model';
 import { Products } from 'src/app/shared/products.model';
-import { TaskService } from 'src/app/task.service';
+import { TaskService } from 'src/app/services/task.service';
+import { TokenStorage } from './../../services/tokenstorage.service';
 
 @Component({
   selector: 'app-products',
@@ -30,17 +31,18 @@ export class ProductsComponent implements OnInit {
     private taskService: TaskService,
     private router: Router,
     private renderer: Renderer2,
-    private auth: AuthService
+    private auth: AuthService,
+    private tokenStorage:TokenStorage
   ) {}
 
   ngOnInit(): void {
     let task = this.taskService.loadCategories();
-    this.token = localStorage.getItem('Token')?.replace(/"/gi, '');
+    this.token = this.tokenStorage.getToken()?.replace(/"/gi, '');
     if (!this.token) {
       this.router.navigate(['/auth/login']);
       return;
     }
-    let getOutOfStock = this.taskService.getOutOfStock(this.token);
+    let getOutOfStock = this.taskService.getOutOfStock();
 
     task.subscribe((res: any) => {
       this.categories = res;
@@ -118,13 +120,13 @@ console.log(typeof(stockAmount))
     productToUpdate: this.outOfStock[index]._id
   }
   
-  this.taskService.updateStock(updatedProduct,this.token).subscribe((res:any)=>{ 
+  this.taskService.updateStock(updatedProduct).subscribe((res:any)=>{ 
     const newStock = Number(stockAmount);
     const product = this.outOfStock[index];
     this.renderer.setStyle(form, 'display', 'none');
     this.renderer.setStyle(li, 'display', 'none'); 
     this.message.nativeElement.textContent = product.title + " has been added with " + newStock + " items "
-  }, (error)=>{ 
+  }, (error:any)=>{ 
     this.message.nativeElement.textContent = "We were unable to handle your request at this time"
   })
   }

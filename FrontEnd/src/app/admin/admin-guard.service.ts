@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
  import { Observable } from "rxjs";
-import { AuthService } from "../auth.service"; 
+import { AuthService } from "../services/auth.service"; 
 
 @Injectable()
 export class AdminGuard implements CanActivate{
@@ -15,8 +15,9 @@ export class AdminGuard implements CanActivate{
                  return false
                  
         }
-        else return true
-        
+        else { 
+            return true
+        }
          
 
        

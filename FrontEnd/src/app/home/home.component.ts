@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';  
 import { Category } from '../shared/category.model'; 
-import { TaskService } from '../task.service';
+import { TaskService } from '../services/task.service';
 
 @Component({
   selector: 'app-home',

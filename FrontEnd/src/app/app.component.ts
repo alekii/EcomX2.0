@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';  
-import { AuthService } from './auth.service';
-import { ProductService } from './product.service';
+import { AuthService } from './services/auth.service';
+import { ProductService } from './services/product.service';
 import { User } from './shared/user.model';
 
 @Component({
@@ -13,8 +13,5 @@ export class AppComponent implements OnInit {
   userInfo?: User
   constructor(private auth: AuthService ){}
   ngOnInit():void{
-     this.auth.userProfile.subscribe((data)=>{
-       this.userInfo = data
-     });
   }
 }

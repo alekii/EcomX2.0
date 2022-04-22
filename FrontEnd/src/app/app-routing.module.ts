@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouteReuseStrategy, RouterModule, Routes } from '@angular/router';
   import { CartComponent } from './cart/cart.component';
  import { CheckoutComponent } from './checkout/checkout.component';
-import { CustomRouteReuseStrategy } from './custom-route-reuse-strategy.service';
+import { CustomRouteReuseStrategy } from './services/custom-route-reuse-strategy.service';
  import { HomeComponent } from './home/home.component'; 
  import { RefreshComponent } from './refresh/refresh.component';
 import { RouteResolver } from './products/resolvers/route.resolver';

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { TaskService } from 'src/app/task.service';
+import { TaskService } from 'src/app/services/task.service';
 import { Cart } from '../../shared/cart.model';
 import { Products } from '../../shared/products.model';
-import { ShoppingCartService } from '../../ShoppinCart.Service';
+import { ShoppingCartService } from '../../services/ShoppinCart.Service';
 
 @Component({
   selector: 'app-productpage',

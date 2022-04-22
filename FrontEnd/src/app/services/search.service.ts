@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { ProductService } from "./product.service";
-import { Products } from "./shared/products.model";
+import { Products } from "../shared/products.model";
 
 @Injectable()
 export class SearchService{

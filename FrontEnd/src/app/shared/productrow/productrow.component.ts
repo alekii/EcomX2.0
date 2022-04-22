@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
-import { ProductService } from 'src/app/product.service';
-import { SearchService } from 'src/app/search.service';
+import { ProductService } from 'src/app/services/product.service';
+import { SearchService } from 'src/app/services/search.service';
 import { Products } from 'src/app/shared/products.model';
-import { TaskService } from 'src/app/task.service';
+import { TaskService } from 'src/app/services/task.service';
 
 @Component({
   selector: 'app-productrow',

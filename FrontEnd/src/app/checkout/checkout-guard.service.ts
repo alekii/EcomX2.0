@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
 import { Observable } from "rxjs";
-import { AuthService } from "../auth.service";
-import { ShoppingCartService } from "../ShoppinCart.Service";
+import { AuthService } from "../services/auth.service";
+import { ShoppingCartService } from "../services/ShoppinCart.Service";
 
 @Injectable( )
 export class CheckoutGuard implements CanActivate{

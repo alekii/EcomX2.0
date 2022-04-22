@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core'; 
-import { User} from './shared/user.model';
+import { Injectable } from '@angular/core';  
 
 @Injectable({
   providedIn: 'root'
@@ -23,14 +22,9 @@ export class WebRequestService {
    getProduct(uri:string,productName:string){
        return this.httpClient.get(`${this.ROOT_URL}/${uri}/${productName}`,  )
    }
-   
-   createUser(uri: string, payload:User){  
-      return this.httpClient.post(`${this.ROOT_URL}/${uri}`, payload, {observe:'response'})
-   }
-
-   createOrder(uri:string, order:Object,Token:any){
-    return  this.httpClient.post(`${this.ROOT_URL}/${uri}`,
-    order,  {headers: new HttpHeaders({'x-auth-token':Token})}
+    
+   createOrder(uri:string, order:Object){
+    return  this.httpClient.post(`${this.ROOT_URL}/${uri}`,order
     )
    } 
    
@@ -50,25 +44,17 @@ export class WebRequestService {
   createProduct(uri:string,product:object){
     return this.httpClient.post(`${this.ROOT_URL}/${uri}`,product, {observe:'response'})
  }
-  getOutOfStock(uri: string,token:string) {  
-    return  this.httpClient.get(`${this.ROOT_URL}/${uri}`,
-    {
-      headers: new HttpHeaders({'X-auth-Token':token})
-    })
+  getOutOfStock(uri: string) {  
+    return  this.httpClient.get(`${this.ROOT_URL}/${uri}`)
 
 }
-updateStock(uri:string,updatedProduct: { quantityInStock: string; productToUpdate: object; }, token:any) { 
-  return this.httpClient.put(`${this.ROOT_URL}/${uri}`, updatedProduct, 
-  {
-    headers: new HttpHeaders({'x-auth-token':token})
-  })
+updateStock(uri:string,updatedProduct: { quantityInStock: string; productToUpdate: object; }) { 
+  return this.httpClient.put(`${this.ROOT_URL}/${uri}`, updatedProduct)
 } 
 
 
-getTodayOrders(uri: string, token: any) { 
-  return this.httpClient.get(`${this.ROOT_URL}/${uri}`, {
-    headers: new HttpHeaders({'x-auth-token':token})
-  }) 
+getTodayOrders(uri: string) { 
+  return this.httpClient.get(`${this.ROOT_URL}/${uri}`) 
 } 
 
 getOrderDetails(uri: string, _id: Object) { 

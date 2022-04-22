@@ -1,7 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Products } from 'src/app/shared/products.model';
-import { TaskService } from 'src/app/task.service';
+import { TaskService } from 'src/app/services/task.service';
 import { Orders } from './orders.model';
+import { TokenStorage } from './../../services/tokenstorage.service';
 
 @Component({
   selector: 'app-orders',
@@ -15,11 +16,11 @@ export class OrdersComponent implements OnInit {
   @ViewChild('shipmentInfo') shipmentDetails: ElementRef
   orderID: any
   seenDetails: boolean;
-  constructor(private taskService: TaskService) { }
+  constructor(private taskService: TaskService, private tokenStorage: TokenStorage) { }
   ngOnInit(): void {
-    let Token = localStorage.getItem('Token')?.replace(/"/gi, "")
+    let Token = this.tokenStorage.getToken()?.replace(/"/gi, "")
     if (Token) {
-      this.taskService.getTodayOrders(Token).subscribe((res: any) => {
+      this.taskService.getTodayOrders().subscribe((res: any) => {
         this.orderIDs = res
       })
     }
