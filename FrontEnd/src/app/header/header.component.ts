@@ -1,8 +1,7 @@
 import { Component, OnDestroy, OnInit, Output } from '@angular/core'; 
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router'; 
-import { Subscription } from 'rxjs';
-import { EventEmitter } from '@angular/core';
+import { Subscription } from 'rxjs'; 
 import { Cart } from '../shared/cart.model';
 import { ShoppingCartService } from '../services/ShoppinCart.Service';
 import { TokenStorage } from './../services/tokenstorage.service';

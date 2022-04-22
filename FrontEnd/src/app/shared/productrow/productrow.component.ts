@@ -29,18 +29,18 @@ export class ProductrowComponent implements OnInit {
 
     this.hasResults = true;
     if (this.category === 'Search Results') {
-      this.getSearchResults().then(() => console.log('Task completed'));
+      this.getSearchResults().then((result) => 
+      this.result.forEach((result) => {
+        result.productUrl = result.title.replace(/ /gi, '-') + '.html';
+      }));
     } else { 
-    let products =  this.taskService
-        .getProductsByCategory(this.category) 
-      
-
-      products.subscribe((response: any) => {
-          this.result = response;
-          this.result.forEach((result) => {
-            result.productUrl = result.title.replace(/ /gi, '-') + '.html';
-          });
+    let products =  this.taskService.getProductsByCategory(this.category)  
+        products.subscribe((response: any) => {
+        this.result = response;
+        this.result.forEach((result) => {
+          result.productUrl = result.title.replace(/ /gi, '-') + '.html';
         });
+      });
     }
   }
   getResults() {
@@ -58,7 +58,7 @@ export class ProductrowComponent implements OnInit {
   getSearchResults(): Promise<any> {
     var promise = new Promise((resolve, reject) => {
       setTimeout(() => {
-        this.result = this.searchService.getSearchResults();
+        this.result = this.searchService.getSearchResults(); 
         if (this.result.length === 0) {
           this.hasResults = false;
         }

@@ -61,4 +61,9 @@ getOrderDetails(uri: string, _id: Object) {
   return this.httpClient.get(`${this.ROOT_URL}/${uri}/${_id}`, )
 
 }
+
+searchProduct(uri:string,searchTerm:String){
+  return this.httpClient.get(`${this.ROOT_URL}/${uri}/${searchTerm}`)
+}
+
 }

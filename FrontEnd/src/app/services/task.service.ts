@@ -7,9 +7,8 @@ import { WebRequestService } from './web-request.service';
 })
 export class TaskService { 
   products:Products[] 
-  constructor(private service: WebRequestService) {
+  constructor(private service: WebRequestService) { 
 
-  
    }
 
    getProducts(){
@@ -57,5 +56,10 @@ export class TaskService {
   getOrderDetails(_id:Object){
     return this.service.getOrderDetails('orders', _id)
   }
+  
+  searchProduct(searchTerm:String){
+    return this.service.searchProduct('products/search',searchTerm)
+  }
+
 }
 

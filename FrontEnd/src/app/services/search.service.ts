@@ -1,15 +1,16 @@
-import { Injectable } from "@angular/core";
-import { ProductService } from "./product.service";
+import { Injectable } from "@angular/core"; 
 import { Products } from "../shared/products.model";
+import { TaskService } from "./task.service";
 
 @Injectable()
 export class SearchService{
     result:Products[]
-    constructor(private productService: ProductService){}
+    constructor(private taskService: TaskService){}
  
-    setSearchResults(searchTerm: String){
-     this.result = this.productService.getProductsByCategory()
-     .filter(product=>product.title.toLowerCase().includes(searchTerm.toLowerCase()))
+    setSearchResults(searchTerm: String){ 
+    this.taskService.searchProduct(searchTerm).subscribe((res:any)=>{ 
+        this.result = res;
+    })
     }
 
     getSearchResults(){
