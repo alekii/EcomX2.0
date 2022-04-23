@@ -8,7 +8,7 @@ import { SearchService } from '../../services/search.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit { 
-  searchString = "" 
+   searchString = "" 
    constructor(private route: ActivatedRoute, 
     private searchService: SearchService) { }
 

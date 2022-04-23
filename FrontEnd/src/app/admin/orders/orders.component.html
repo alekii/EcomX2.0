@@ -15,15 +15,22 @@
     <div class="order-info">
       <div class="search-order">
         <label>Search Order</label>
-        <form>
-          <input type="text" class="search-product-text" />
+        <form (ngSubmit)="searchOrderNumber(searchForm)" #searchForm="ngForm">
+          <input type="text" class="search-product-text" name="searchText" ngModel required/>
           <input type="submit" value="Search" class="search-product-submit" />
         </form>
       </div>
-      <div class="order-search-result">
+      <div class="order-search-result" *ngIf="orderfound; else notfound">
         <p>Order Found</p>
-        <p><a href="">#3654534654</a></p>
+        <p class="orderfound"
+        (click)="getDetails(searchOrderId)"
+        >#{{searchOrder}}</p>
       </div>
+      <ng-template #notfound>
+        <div class="order-search-result">
+          <p>Order Not Found</p> 
+        </div> 
+      </ng-template>
       <div class="view-order" >
         <h4>Order Details</h4>
         <ul #shipmentInfo *ngIf="orderDetails">

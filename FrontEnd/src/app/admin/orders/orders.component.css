@@ -22,17 +22,18 @@
   .orders-today h4 {
     margin-bottom: 20px;
   }
-  .orders-today li {
+  .orders-today li,.orderfound {
     list-style: decimal;
     margin-bottom: 20px;
     cursor:pointer
   } 
-  .orders-today li:hover { 
+  .orders-today li:hover,.orderfound:hover { 
     text-decoration: underline;
   }
   .orders-today li a {
     text-decoration: none;
   }
+  
   .order-amount {
     margin-left: 50px;
   }

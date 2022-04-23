@@ -12,6 +12,7 @@ import { Category } from 'src/app/shared/category.model';
 import { Products } from 'src/app/shared/products.model';
 import { TaskService } from 'src/app/services/task.service';
 import { TokenStorage } from './../../services/tokenstorage.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-products',
@@ -26,6 +27,7 @@ export class ProductsComponent implements OnInit {
   @ViewChild('parentUl') parent: ElementRef;
   @ViewChild('message') message :ElementRef;
   token:any
+  searchProducts:Products[] 
 
   constructor(
     private taskService: TaskService,
@@ -108,8 +110,7 @@ export class ProductsComponent implements OnInit {
     form: HTMLFormElement,
     stockAmount: string,
     index: number
-  ) {
-console.log(typeof(stockAmount))
+  ) { 
     if (!this.token) {
       this.router.navigate(['/auth/login']);
       return;
@@ -130,4 +131,17 @@ console.log(typeof(stockAmount))
     this.message.nativeElement.textContent = "We were unable to handle your request at this time"
   })
   }
+
+findProduct(searchform:NgForm){ 
+  this.auth.isAdminAuthorized();
+  let searchTerm = searchform.value.searchText; 
+  this.taskService.searchProduct(searchTerm).subscribe((data:any)=>{
+    this.searchProducts = data;
+    data.map((d:any,index:number)=>{
+        this.searchProducts[index].productUrl = (this.searchProducts[index].title).replace(/ /gi, "-") + ".html";
+      }) 
+      
+  })
+}
+
 }

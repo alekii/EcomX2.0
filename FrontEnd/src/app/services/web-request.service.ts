@@ -66,4 +66,8 @@ searchProduct(uri:string,searchTerm:String){
   return this.httpClient.get(`${this.ROOT_URL}/${uri}/${searchTerm}`)
 }
 
+searchOrder(uri:string,searchTerm:number){
+  return this.httpClient.get(`${this.ROOT_URL}/${uri}/${searchTerm}`)
+}
+
 }

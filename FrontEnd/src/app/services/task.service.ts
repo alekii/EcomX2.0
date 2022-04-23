@@ -61,5 +61,9 @@ export class TaskService {
     return this.service.searchProduct('products/search',searchTerm)
   }
 
+  searchOrder(searchTerm:number){
+    return this.service.searchOrder('orders/search',searchTerm)
+  }
+
 }
 

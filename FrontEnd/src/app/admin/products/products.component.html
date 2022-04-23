@@ -7,11 +7,11 @@
 
                 <form (ngSubmit) ="onSubmit(f)" #f="ngForm">
                     <label>Product Name</label>
-                    <input type="text"name="title" ngModel required>
+                    <input type="text" name="title" ngModel required>
                     <label>Price</label>
-                    <input type="text"name="price" ngModel required>
+                    <input type="text" name="price" ngModel required>
                      <label>Category</label>
-                    <select name="" id="" name="category" name="category" ngModel required>
+                    <select name="category" ngModel required>
                      <option>Select Category</option>
                         <option 
                         *ngFor="let category of categories ;" >
@@ -33,16 +33,15 @@
             <form>
                 <label>Search Product</label>
                 <div class="search-product">
-                    <input type="text" class="search-product-text">
-                    <input type="submit" value="Search" class="search-product-submit">
+                    <form (ngSubmit)="findProduct(z)" #z="ngForm">
+                        <input type="text" class="search-product-text" name="searchText" ngModel required>
+                        <input type="submit" value="Search" class="search-product-submit">
+                    </form>
                 </div>
             </form>
-            <div class="product-search-results">
+            <div class="product-search-results" *ngIf="searchProducts">
                 <ul>
-                    <li><a href="#">search result 1</a></li>
-                    <li><a>search result 2</a></li>
-                    <li><a>search result 3</a></li>
-                    <li><a>search result 4</a></li>
+                    <li *ngFor="let product of searchProducts"><a [routerLink]="['/product',product.productID,product.productUrl]" target="_blank">{{product.title}} ({{product.quantityInStock}})</a></li>
                 </ul>
             </div>
 
