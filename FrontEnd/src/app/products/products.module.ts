@@ -17,7 +17,7 @@ import { SharedModule } from "../shared/shared.module";
     declarations:[
         ProductpageComponent,
         CategorypageComponent,
-        SearchComponent 
+        SearchComponent,
     ], 
     imports:[
         CommonModule,

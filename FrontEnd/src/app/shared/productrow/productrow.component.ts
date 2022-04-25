@@ -1,10 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { filter, map } from 'rxjs/operators';
-import { ProductService } from 'src/app/services/product.service';
 import { SearchService } from 'src/app/services/search.service';
 import { Products } from 'src/app/shared/products.model';
-import { TaskService } from 'src/app/services/task.service';
+import { TaskService } from 'src/app/services/task.service'; 
 
 @Component({
   selector: 'app-productrow',
@@ -17,6 +15,9 @@ export class ProductrowComponent implements OnInit {
   products: Products[];
   result: Products[] = [];
   hasResults = true;
+  resultsnumber= 0;
+  loading=true;
+  isSearch = false;
 
   constructor(
     private taskService: TaskService,
@@ -24,16 +25,17 @@ export class ProductrowComponent implements OnInit {
     private searchService: SearchService
   ) {}
 
-  ngOnInit(): void {
-    // this.products = this.route.snapshot.data['myData']
-
+  ngOnInit(): void { 
     this.hasResults = true;
     if (this.category === 'Search Results') {
-      this.getSearchResults().then((result) => 
+      this.loading = true;
+      this.isSearch = true;
+      this.getSearchResults().then((result) =>  
       this.result.forEach((result) => {
         result.productUrl = result.title.replace(/ /gi, '-') + '.html';
       }));
     } else { 
+      this.loading = false; 
     let products =  this.taskService.getProductsByCategory(this.category)  
         products.subscribe((response: any) => {
         this.result = response;
@@ -53,17 +55,19 @@ export class ProductrowComponent implements OnInit {
           this.result.push(cat);
         }
       });
-    }, 100);
+    }, 1000);
   }
-  getSearchResults(): Promise<any> {
+  getSearchResults(): Promise<any> { 
     var promise = new Promise((resolve, reject) => {
       setTimeout(() => {
-        this.result = this.searchService.getSearchResults(); 
+        this.result = this.searchService.getSearchResults();  
         if (this.result.length === 0) {
           this.hasResults = false;
-        }
+        } 
+        this.resultsnumber = this.result.length
         resolve(this.result);
-      }, 100);
+        this.loading = false;
+      },1500);
     });
     return promise;
   }

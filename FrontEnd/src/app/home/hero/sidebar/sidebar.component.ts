@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';  
 import { Category } from 'src/app/shared/category.model';
-import { TaskService } from 'src/app/services/task.service';
+import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,13 +9,10 @@ import { TaskService } from 'src/app/services/task.service';
 })
 export class SidebarComponent implements OnInit {
   categories: Category []
-  constructor(private taskService:TaskService) { }
+  constructor(private categoryService:CategoryService) { }
 
-  ngOnInit(): void {
-
-     this.taskService.loadCategories().subscribe((res:any)=>{ 
-      this.categories = res
-     })
-
-}
+  ngOnInit(): void { 
+    this.categoryService.getCategories().then((res)=>{
+      this.categories =res
+    });}
 }

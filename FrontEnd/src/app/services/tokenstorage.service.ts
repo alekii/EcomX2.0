@@ -5,8 +5,9 @@ import { User } from "../shared/user.model";
 const TOKEN_KEY = 'x-auth-token';
 const USER_KEY = 'user-token';
 export class TokenStorage { 
-    userProfile: BehaviorSubject<User> = new BehaviorSubject<User>({
-        firstName:'',
+    firstName = this.getUser().firstName; 
+    userProfile: BehaviorSubject<User> = new BehaviorSubject<User>({ 
+        firstName:this.firstName,
         lastname:'',
         email:'', 
     })
@@ -30,8 +31,16 @@ return Token;
 }
 getUser() {
     const user = localStorage.getItem(USER_KEY)
+    const nouser:User = {
+        firstName: "",
+        lastname: "",
+        email: ""
+    }
     if(user){
         return JSON.parse(user);
+    }
+    else{
+        return nouser
     }
 }
 

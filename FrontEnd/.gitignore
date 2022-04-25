@@ -1,8 +1,8 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
-
-# compiled output
-/dist
+/backend
+# compiled output 
 /tmp
+/dist
 /out-tsc
 # Only exists if Bazel was run
 /bazel-out
@@ -44,4 +44,5 @@ testem.log
 .DS_Store
 Thumbs.db
 
-.package-lock.json
+.package-lock.json 
+.Westshop.zip

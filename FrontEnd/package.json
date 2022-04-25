@@ -1,9 +1,15 @@
 {
   "name": "westshop",
-  "version": "0.0.0",
+  "version": "2.0.0",
+  "engines": {
+    "node": "14.17.4",
+    "npm": "6.14.14"
+  },
   "scripts": {
+    "heroku-postbuild": "ng build --prod",
+    "heroku-prebuild": "cd backend && npm install",
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -19,15 +25,17 @@
     "@angular/platform-browser": "~12.1.0",
     "@angular/platform-browser-dynamic": "~12.1.0",
     "@angular/router": "~12.1.0",
+    "express": "^4.17.3",
     "json": "^11.0.0",
     "json-server": "^0.17.0",
+    "path": "^0.12.7",
     "rxjs": "~6.6.0",
     "server": "^1.0.37",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~12.1.4",
+    "@angular-devkit/build-angular": "^12.1.4",
     "@angular/cli": "~12.1.4",
     "@angular/compiler-cli": "~12.1.0",
     "@types/jasmine": "~3.8.0",

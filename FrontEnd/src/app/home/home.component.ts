@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';  
 import { Category } from '../shared/category.model'; 
-import { TaskService } from '../services/task.service';
+import { CategoryService } from '../services/category.service';
 
 @Component({
   selector: 'app-home',
@@ -9,13 +9,12 @@ import { TaskService } from '../services/task.service';
 })
 export class HomeComponent  implements OnInit{
   categories:Category[] 
-  constructor( private taskService: TaskService) { 
+  constructor( private categoryService: CategoryService) { 
    } 
-   ngOnInit(){
-     
-      this.taskService.loadCategories().subscribe((res:any)=>{
-      this.categories = res  
-    })  
+   ngOnInit(){ 
+    this.categoryService.getCategories().then((res)=>{
+      this.categories =res
+    }); 
    }
 }
 

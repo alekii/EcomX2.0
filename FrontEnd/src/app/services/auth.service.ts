@@ -1,11 +1,10 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Router } from "@angular/router";
-import { BehaviorSubject } from "rxjs";
+import { Router } from "@angular/router"; 
 import { User } from "../shared/user.model";
 import { TokenStorage } from "./tokenstorage.service";
 
-const AUTH_API = 'http://localhost:3000/api/';
+const AUTH_API = 'https://westshop.herokuapp.com/api';
 
 @Injectable({
     providedIn:'root'

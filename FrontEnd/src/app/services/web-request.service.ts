@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class WebRequestService { 
   readonly ROOT_URL: any;
   constructor(private httpClient : HttpClient) {
-    this.ROOT_URL = "http://localhost:3000/api"
+    this.ROOT_URL = "https://westshop.herokuapp.com/api"
    }
   
   getProducts(uri:string){

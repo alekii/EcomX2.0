@@ -48,11 +48,14 @@ export class HeaderComponent implements OnInit,OnDestroy {
   }
 
   search(){
-    const searchText = (this.searchForm.value['searchTerm']).trim();  
+    const rawText = this.searchForm.value['searchTerm']
+    if(rawText!=null){ 
+    const searchText = rawText.trim(); 
     this.router.navigateByUrl('/refresh', { skipLocationChange: true }).then(() => {
     this.router.navigate(['./search/'+searchText]);
   });
   }
+}
   logOut(){ 
     this.tokenStorage.signout()
     this.router.navigate(['/'])
