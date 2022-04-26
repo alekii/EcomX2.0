@@ -1,6 +1,6 @@
+<div *ngIf="categories; else skeleton" >
 <app-hero> 
 </app-hero>
-<div *ngIf="categories">
 <app-productrow [columns]="3" [category]="categories[0].name"> 
 </app-productrow> 
 <app-full-container> 
@@ -12,3 +12,41 @@
 <app-productrow [columns]="4" [category]="categories[2].name"> 
 </app-productrow> 
 </div>
+<ng-template #skeleton> 
+    <div class="hero-skeleton">
+        <div class="sidebar-skeleton">
+            <div class="sidebar-item-skeleton"></div> 
+            <div class="sidebar-item-skeleton"></div>
+            <div class="sidebar-item-skeleton"></div>
+            <div class="sidebar-item-skeleton"></div>
+            <div class="sidebar-item-skeleton"></div>
+            <div class="sidebar-item-skeleton"></div>
+            <div class="sidebar-item-skeleton"></div>
+            <div class="sidebar-item-skeleton"></div>
+        </div>
+        <div class="banner-skeleton"></div>
+    </div>
+    <h3 class="heading-skeleton"></h3>
+    <div class="items-skeleton less-width">
+        <div class="item-skeleton three-column"></div>
+        <div class="item-skeleton three-column"></div>
+        <div class="item-skeleton three-column"></div>
+    </div>
+    <h3 class="heading-skeleton"></h3>
+    <div class="category-skeleton"></div> 
+    <h3 class="heading-skeleton"></h3>
+    <div class="items-skeleton full-width">
+        <div class="item-skeleton four-column"></div>
+        <div class="item-skeleton four-column"></div>
+        <div class="item-skeleton four-column"></div>
+        <div class="item-skeleton four-column"></div>
+    </div>
+    <h3 class="heading-skeleton"></h3>
+    <div class="category-skeleton"></div><h3 class="heading-skeleton"></h3>
+    <div class="items-skeleton full-width">
+        <div class="item-skeleton four-column"></div>
+        <div class="item-skeleton four-column"></div>
+        <div class="item-skeleton four-column"></div>
+        <div class="item-skeleton four-column"></div>
+    </div> 
+</ng-template>

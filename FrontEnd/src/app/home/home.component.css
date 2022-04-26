@@ -1,0 +1,64 @@
+.hero-skeleton{
+    height:400px;
+    max-width:1200px; 
+    display:flex;
+    justify-content: space-between;
+}
+.banner-skeleton{ 
+    width:69%;
+    animation:skeleton 1s linear infinite alternate;
+}
+.sidebar-skeleton{ 
+    width:29%;  
+}
+.sidebar-item-skeleton{  
+    height:40px;
+    margin:10px 0; 
+    animation:skeleton 1s linear infinite alternate;
+}
+.items-skeleton{ 
+    display:flex; 
+    justify-content: space-between;
+    margin:30px auto 0 auto;
+}
+
+.heading-skeleton{
+    margin: 30px 0 20px 0;
+    height: 25px;
+    width: 16%;
+    animation:skeleton 1s linear infinite alternate;
+}
+.item-skeleton{ 
+   height:250px;
+   animation:skeleton 1s linear infinite alternate;
+   margin-bottom:20px
+}
+.full-width{
+    width:90%;
+}
+.less-width{
+    width:70%
+}
+.three-column{
+  width:30%
+}
+.four-column{
+    width:22%
+}
+.category-skeleton{
+    height:350px;
+    margin-top:20px;
+    width:100%;
+    animation:skeleton 1s linear infinite alternate;
+}
+
+
+@keyframes skeleton {
+    0% {
+        background-color: hsl(200,20%,70%);
+    }
+    100% {
+        background-color: hsl(200,20%,95%);
+    }
+    
+}

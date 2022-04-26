@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 import { User } from "../shared/user.model";
 import { TokenStorage } from "./tokenstorage.service";
 
-const AUTH_API = 'https://westshop.herokuapp.com/api';
+const AUTH_API = 'https://westshop.herokuapp.com/api/';
 
 @Injectable({
     providedIn:'root'
