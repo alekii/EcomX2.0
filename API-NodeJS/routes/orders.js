@@ -56,27 +56,46 @@ router.get("/today",[auth,admin],async(req,res)=>{
 
 router.get("/:orderID",async(req,res)=>{  
    let orderDetails = []
-   let params = (req.params.orderID) 
-  console.log(params)
-   const orderInfo = await Order.findById(params) 
-   items =[]
-   let categories =[]
-   if(!orderInfo) return res.status(400).send("Order not found") 
-   for(let order of orderInfo.orderItems){ 
-            const product = await Product.findById(order._id)   
-            if(!product) return res.status(400).send("Product could not be retrieved")
-            const category = await Category.findById(product.category)
-            if(!category) return res.status(400).send("category could not be retrieved")
-              product.quantityInStock = order.quantity 
-              items.push(product) 
-              categories.push(category.name)
-   }
-   orderDetails.push(items) 
-   orderDetails.push(orderInfo.shipmentInfo)  
-   orderDetails.push(categories)
-   res.status(200).send(orderDetails)
+   let params = (req.params.orderID)  
+ 
+   Order.findById(params)
+   .then(async (order) => {
+     if(order) {
+       await order.orderItems.map(async (orderItem) =>{
+           await Product.findById(order._id)
+            .then(async (product) =>{
+              if(product) {
+                await Category.findById(product.category)
+                 .then(async (category)=>{
+                  if(category){
+                    product.quantityInStock = order.quantity;
+                    items.push(product) 
+                    categories.push(category.name);
+                  } else {
+                    return res
+                           .status(404)
+                           .send('category could not be retrieved"')
+                  }
+                 })
+              } else {
+                return res
+                       .status(404)
+                       .send('product could not be retrieved"')
+              }
+            })     
+       }) 
+       orderDetails.push(items) 
+       orderDetails.push(order.shipmentInfo)  
+       orderDetails.push(categories)
+       return res
+              .status(200) 
+              .send(orderDetails) 
+     }
+   })
+   .catch((error) => {
+    return res.status(404).send("Order not found") 
+   })
+  
  })
- 
- 
 
 module.exports = router

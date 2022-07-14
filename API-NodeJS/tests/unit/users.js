@@ -1,6 +1,4 @@
-const request = require('supertest');
-const {User} = require('../../model/users')
-const user = require('../../routes/users.js')
+const {User} = require('../../model/users') 
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const mongoose = require('mongoose');
